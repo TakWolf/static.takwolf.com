@@ -1,0 +1,50 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+.rotation {
+    transition: all 3s ease-in-out;
+}
+.rotation:hover {
+    transform: rotate(360deg);
+}
+.container {
+    text-align: center;
+    padding: 20px;
+    background-color: rgba(0,0,0,0.5);
+    border-radius: 20px;
+}
+.container a {
+    color: #ffffff;
+    text-decoration: underline;
+}
+.container a:hover {
+    color: #dddddd;
+    text-decoration: underline;
+}
+.avatar {
+    width: 140px;
+    height: 140px;
+    margin-bottom: 20px;
+    background-color: #ffffff;
+    border-radius: 50%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+h1 {
+    font-size: 26px;
+    color: #ffffff;
+}
+h2 {
+    margin-top: 10px;
+    font-size: 20px;
+    color: #ffffff;
+}
+.icon {
+    width: 36px;
+    height: 36px;
+}
+.links {
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+

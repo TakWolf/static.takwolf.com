@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chrome Demo</title>
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        @font-face {
+            font-family: Zpix;
+            src: url("Zpix.ttf");
+        }
+
+        @font-face {
+            font-family: Ipix;
+            src: url("IPix.ttf");
+        }
+
+        @font-face {
+            font-family: Nds;
+            src: url("ndsbios_memesbruh03.ttf");
+        }
+
+        @font-face {
+            font-family: SourceHan;
+            src: url("SourceHanSansSC/SourceHanSansSC-Regular.otf");
+        }
+
+        @font-face {
+            font-family: Roboto;
+            src: url("roboto-unhinted/Roboto-Regular.ttf");
+        }
+
+        @font-face {
+            font-family: RobotoCondensed;
+            src: url("roboto-unhinted/RobotoCondensed-Regular.ttf");
+        }
+
+        body {
+            font-family: SourceHan;
+            background-color: black;
+        }
+
+    </style>
+</head>
+<body>
+
+<div id="text-container">
+    ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890
+</div>
+
+<script>
+    var fontSize = 24;
+    var col = 100;
+    var row = 100;
+
+    var textContainer = document.getElementById('text-container');
+    textContainer.style.position = 'fixed';
+    textContainer.style.left = '0px';
+    textContainer.style.top = '0px';
+    textContainer.style.width = fontSize * col + 'px';
+    textContainer.style.color = '#000000';
+    textContainer.style.fontSize = fontSize + 'px';
+    // textContainer.style.lineHeight = fontSize + 'px';
+
+    for (var i = 0; i < col; i++) {
+        for (var j = 0; j < row; j++) {
+            var div = document.createElement('div');
+            div.style.position = 'fixed';
+            div.style.left = i * fontSize + 'px';
+            div.style.top = j * fontSize + 'px';
+            div.style.width = fontSize + 'px';
+            div.style.height = fontSize + 'px';
+            if ((i + j) % 2 === 0) {
+                div.style.backgroundColor = '#ffb8b8'
+            } else {
+                div.style.backgroundColor = '#a8e6ff'
+            }
+            document.body.insertBefore(div, textContainer);
+        }
+    }
+</script>
+
+</body>
+</html>

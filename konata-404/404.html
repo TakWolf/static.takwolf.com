@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>404</title>
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-image: url("img/404-bg.png");
+        }
+
+        .alert {
+            position: fixed;
+            bottom: 48px;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 24px;
+            color: white;
+            background-color: rgba(0, 0, 0, 0.8);
+            font-size: 20px;
+            font-weight: bold;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .text-red {
+            color: #FF0000;
+        }
+
+        .text-green {
+            color: #00FF00;
+        }
+
+        #konata {
+            position: fixed;
+        }
+
+        #bsod-winxp {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            padding: 20px;
+            color: white;
+            background-color: #0000FF;
+            font-family: Consolas, Monaco, monospace;
+            font-size: 16px;
+            font-weight: bold;
+            visibility: hidden;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="alert">
+    <span class="text-red">警告：</span>现在返回<a class="text-green" href="https://takwolf.com">首页</a>还来得及！
+</div>
+
+<img id="konata" src="img/404-konata.gif">
+
+<div id="bsod-winxp">
+    A problem has been detected and windows has been shut down to prevent damage<br>
+    to your computer.<br>
+    <br>
+    KONATA_IS_TO_FAST<br>
+    <br>
+    If this is the first time you've seen this Stop error screen,<br>
+    restart your computer. If this screen appears again, follow<br>
+    these steps:<br>
+    <br>
+    Check to make sure any new hardware or software is properly installed.<br>
+    If this is a new installation, ask your hardware or software manufacturer<br>
+    for any windows updates you might need.<br>
+    <br>
+    If problems continue, disable or remove any newly installed hardware<br>
+    or software. Disable BIOS memory options such as caching or shadowing.<br>
+    If you need to use safe mode to remove or disable components, restart<br>
+    your computer, press F8 to select Advanced Startup Options, and then<br>
+    select Safe Mode.<br>
+    <br>
+    Technical information:<br>
+    <br>
+    *** STOP: 0x00000000 (0x00000001, 0x00000002, 0x00000003, 0x00000004)<br>
+    <br>
+    <br>
+    *** 404.html - Address ABCDEFGH base at IJKLMNOP, DateStamp 00000000<br>
+    <br>
+    Beginning dump of physical memory<br>
+</div>
+
+<script>
+
+    (function () {
+
+        var konata = document.getElementById('konata');
+        var x = (window.innerWidth - konata.width) / 2;
+        var y = (window.innerHeight - konata.height) / 2;
+        var dx = Math.floor(Math.random() * 2) === 0 ? -1 : 1;
+        var dy = Math.floor(Math.random() * 2) === 0 ? -1 : 1;
+        var speed = 0;
+        var fps = 60;
+        var timeCounter = 0;
+        var lastTime = new Date().getTime();
+
+        var run = function() {
+            var nowTime = new Date().getTime();
+            var deltaTime = nowTime - lastTime;
+            if (deltaTime - 1000 / fps >= 0) {
+                lastTime = nowTime;
+                timeCounter += deltaTime;
+                if (timeCounter >= 1000) {
+                    timeCounter = 0;
+                }
+                update(deltaTime / 1000);
+            }
+        };
+        window.setInterval(run, 1);
+
+        function update(dt) {
+            x += speed * dx;
+            y += speed * dy;
+
+            if (x > window.innerWidth - konata.width) {
+                x = window.innerWidth - konata.width;
+                dx = -1;
+            } else if (x < 0) {
+                x = 0;
+                dx = 1;
+            }
+
+            if (y > window.innerHeight - konata.height) {
+                y = window.innerHeight - konata.height;
+                dy = -1;
+            } else if (y < 0) {
+                y = 0;
+                dy = 1;
+            }
+
+            if (speed < 10) {
+                speed += 0.01;
+            } else if (speed < 50) {
+                speed += 0.02;
+            } else if (speed < 200) {
+                speed += 0.05;
+                console.error('泉此方开始暴走！  ' + speed);
+            } else if (speed >= 200) {
+                var bsod = document.getElementById('bsod-winxp');
+                bsod.style.visibility = 'visible';
+            }
+
+            if ((window.innerWidth < 400 || window.innerHeight < 400) && speed < 100) {
+                console.error('泉此方开始鬼畜！  ' + speed);
+            }
+
+            konata.style.left = x + 'px';
+            konata.style.top = y + 'px';
+        }
+
+        console.info('泉此方的初始速度为：' + speed + '，初始加速度为：' + 0.01 + '，请计算10年后泉此方的年龄。');
+
+    })();
+
+</script>
+
+</body>
+</html>
