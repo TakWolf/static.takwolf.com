@@ -1,0 +1,139 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+
+	<title>Love Page</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="shortcut icon" href="icon/favicon.ico">
+	<style type="text/css">
+		@font-face {
+			font-family: digit;
+			src: url('font/digital-7_mono.ttf') format("truetype");
+		}
+	</style>
+    	<style type="text/css">
+		a:link,a:visited {
+			text-decoration:none;
+		}
+	</style>
+	<link href="css/default.css" type="text/css" rel="stylesheet">
+	<script src="./js/jquery.js"></script>
+	<script src="./js/garden.js"></script>
+    <script src="./js/functions.js"></script>
+	<script src="./js/console.js"></script>	
+
+</head>
+
+<body>
+
+	<div id="mainDiv">
+    	<!-- 内容 -->
+		<div id="content">
+        	<!-- 打字机 -->
+			<div id="code">
+            	<span class="comments">/** 这里是中文注释 */ </span><br />
+				<span class="comments">/**</span><br />
+				<span class="space"/>
+                <span class="comments">*  It's so so so nice to encountered you,</span><br />
+				<span class="space"/>
+                <span class="comments">*  So I write some codes to celebrate our so many days.</span><br />
+				<span class="space"/><span class="comments">*/</span><br />
+				Boy i = <span class="keyword">new</span> Boy(<span class="string">"yc"</span>);<br />
+				Girl u = <span class="keyword">new</span> Girl(<span class="string">"zjj"</span>);<br />
+				<span class="comments">// Jue 15, 2013, I met you.</span><br />
+				<span class="comments">// Oct, 2013, I started to pursue you.</span><br />
+				i.love(u);<br />
+				<span class="comments">// Unluckily, you did not accept me and asked me to learn to forget.</span><br />
+				i.lose(u);<br />
+				<span class="comments">// Since then, I missd u every day.</span><br />
+				i.miss(u);<br />
+				<span class="comments">// Although it was not the right time ,the person who I met is right...</span><br />
+				i.takeCareOf(u);<br />
+				<span class="comments">// I thought maybe you don't like me.</span><br />
+				<span class="comments">// Still I keep waiting and I have confidence that you will.</span><br />
+				<span class="keyword">boolean</span> isHesitate = <span class="keyword">true</span>;<br />
+				<span class="keyword">while</span> (isHesitate) {<br />
+				<span class="placeholder"/>i.waitFor(u);<br />
+				<span class="placeholder"/><span class="comments">// It's not the goodbye that hurts, but the flashbacks that follow.</span><br />
+				<span class="placeholder"/><span class="comments">// Almost you are all to me.</span><br />
+				<span class="placeholder"/>isHesitate = u.thinkOver();<br />
+				}<br />
+				<span class="comments">// But it's time to face the truth.</span><br />
+				i.miss(<font color="red">u</font>);<br />
+				I love you. <br />
+			</div>
+			<!-- 心 -->
+			<div id="loveHeart"> 
+			  <canvas id="garden"></canvas>
+				<div id="words">
+					<div id="messages">
+						zjj, I have met you for
+						<div id="elapseClock"></div>
+					</div>
+					<div id="loveu">
+						I love you. <br/>
+						<div class="signature"></div>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+        
+		<br>
+		
+        <!-- 版权声明 -->
+        <div id="copyright"> 
+        	<center> 
+                By 
+                <a href="http://www.baidu.com" target="_blank" >
+                    <span style="color: #0000ff"> 
+                    	yinchao
+                    </span> 
+                </a> 
+                For
+                <a href="" target="_blank"> 
+                    <span style="color: #0000ff">
+                    	zjj
+                    </span> 
+                </a>
+            </center> 
+        </div>
+	</div>
+
+</body>
+
+	<script type="text/javascript">
+		var offsetX = $("#loveHeart").width() / 2;
+		var offsetY = $("#loveHeart").height() / 2 - 55;
+		var together = new Date();
+		together.setFullYear(2013, 05, 15); // Met you: 2013, 06, 15
+		together.setHours(0);
+		together.setMinutes(0);
+		together.setSeconds(0);
+		together.setMilliseconds(0);
+		
+		if (!document.createElement('canvas').getContext) {
+			var msg = document.createElement("div");
+			msg.id = "errorMsg";
+			msg.innerHTML = "❤  您的浏览器不支持HTML5技术<br/>推荐使用 Chrome 14+/IE 9+/Firefox 7+/Safari 4+/Opera 浏览器 喵~ ＞▽＜ "; 
+			document.body.appendChild(msg);
+			$("#code").css("display", "none")
+			$("#copyright").css("position", "absolute");
+			$("#copyright").css("bottom", "10px");
+		    document.execCommand("stop");
+		} else {
+			setTimeout(function () {
+				startHeartAnimation();
+			}, 5000);
+
+			timeElapse(together);
+			setInterval(function () {
+				timeElapse(together);
+			}, 500);
+
+			adjustCodePosition();
+			$("#code").typewriter();
+		}
+	</script>
+
+</html>
