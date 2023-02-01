@@ -1,0 +1,95 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>辽工大教务在线 - 客户端</title>
+    <link rel="shortcut icon" href="images/favicon.png">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <style>
+        body {
+            padding-top: 50px;
+            padding-bottom: 20px;
+        }
+        #banner-1 {
+            background-color: #e96fae;
+        }
+        #banner-2 {
+            background-color: #f0ad4e;
+        }
+        #banner-3 {
+            background-color: #66afe9;
+        }
+        #banner-4 {
+            background-color: #40e954;
+        }
+    </style>
+</head>
+<body>
+
+    <!--导航-->
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <a href="index.html"><img src="images/nav-logo.png" class="img-responsive"></a>
+            </div>
+        </div>
+    </div>
+
+    <!--轮播-->
+    <div id="banner" class="carousel slide">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+            <li data-target="#banner" data-slide-to="0" class="active"></li>
+            <li data-target="#banner" data-slide-to="1"></li>
+        </ol>
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner">
+            <div id="banner-1" class="item active">
+                <img src="images/1.png" class="img-responsive center-block">
+            </div>
+            <div id="banner-2" class="item">
+                <img src="images/2.png" class="img-responsive center-block">
+            </div>
+        </div>
+        <!-- Controls -->
+        <a class="left carousel-control" href="#banner" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left"></span>
+        </a>
+        <a class="right carousel-control" href="#banner" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right"></span>
+        </a>
+    </div>
+
+    <!--内容-->
+    <div class="container">
+        <hr class="featurette-divider">
+        <div class="row">
+            <div id="download" class="col-lg-4">
+                <p><a href="downloads/lntuonline-v0.0.0.9.apk"><img src="images/download_android.png" class="img-responsive center-block"></a></p>
+            </div>
+            <div class="col-lg-4">
+                <p><a href="http://www.pgyer.com/jwzx"><img src="images/download_ios.png" class="img-responsive center-block"></a></p>
+            </div>
+            <div class="col-lg-4">
+                <p><img src="images/download_wp.png" class="img-responsive center-block"></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <hr class="featurette-divider">
+            <p class="pull-right"><a href="#">Back to top</a></p>
+            <p> Copyright &copy; 2014 - 2015 &middot; PUPBOSS . All Rights Reserved . </p>
+        </div>
+    </footer>
+
+    <!-- jQuery and Bootstrap -->
+    <script src="js/jquery-2.1.0.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+
+</body>
+</html>
+

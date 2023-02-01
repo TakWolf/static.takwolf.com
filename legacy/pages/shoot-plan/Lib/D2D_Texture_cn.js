@@ -1,0 +1,1 @@
+﻿var D2D_纹理=D2D_Texture;D2D_纹理.prototype.取宽度=D2D_Texture.prototype.getWidth;D2D_纹理.prototype.取高度=D2D_Texture.prototype.getHeight;D2D_纹理.prototype.是否就绪=D2D_Texture.prototype.isReady;D2D_纹理.prototype.取渲染句柄=D2D_Texture.prototype.getDrawHandle;D2D_纹理.prototype.销毁=D2D_Texture.prototype.dispose;

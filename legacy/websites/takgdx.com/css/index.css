@@ -1,0 +1,150 @@
+/*清空所以内外边距*/
+* { 
+	padding: 0;
+	margin: 0; 
+}
+
+body {
+	background:#000;
+}
+
+/*框架page*/
+#page {
+	width:980px;
+	padding:0 22px;
+	margin:0 auto;
+	background:#FFF;
+}
+
+/*头部header*/
+#header {
+	height:580px;
+}
+
+#logo {
+	width:450px;
+	height:150px;
+	background-image:url(../images/logo.png);
+	background-repeat:no-repeat;
+	clear:both;
+	float:left;
+	margin:10px 20px;
+}
+#logo p {
+	font-size: 18px;
+	font-weight: bold;
+	text-align: center;
+}
+
+#nav {
+	height:220px;
+	background-image:url(../images/nav_bg.png);
+	background-repeat:no-repeat;
+}
+#nav ul {
+	list-style: none;
+	height: 50px;	
+	padding: 170px 0;
+	margin:0 20px;	
+}
+#nav ul li {
+	float: left;
+}
+
+#nav ul li a {
+	display: block;
+	width: auto;
+	margin: 0;
+	padding: 0 20px;
+	color:#FFF;
+	font: bold 16px/50px "Trebuchet MS", Helvetica, Arial, sans-serif;
+	text-decoration: none;	
+	letter-spacing: 1px;	
+}
+
+#nav ul li a:hover, 
+#nav ul li a:active {
+	color:#FFF;
+	background:#039;	
+}
+#nav ul li#current a {	
+	color:#F60;
+}
+
+#banner {
+	height:360px;
+	background:#000;
+}
+
+/*内容content*/
+#guide {
+	height:300px;
+}
+/*进入应用商店*/
+#tab1 {
+	width:490px;
+	height:300px;
+	float:left;
+	margin:0 auto;
+	background-image:url(../images/tab_bg.png);
+	background-repeat:no-repeat;
+	
+}
+/*下载TakGDX*/
+#tab2 {
+	width:490px;
+	height:300px;
+	float:right;
+	margin:0 auto;
+	background-image:url(../images/tab_bg.png);
+	background-repeat:no-repeat;
+}
+
+.tab_content {
+	margin:30px 80px 0 80px;
+	height:150px;
+}
+.tab_content h2{
+	text-align:center;
+}
+
+.tab_content {
+	margin:40px 80px auto 80px;
+}
+.tab_content h2{
+	text-align:center;
+}
+#tab_button_appstore {
+	margin: 0 120px 0 120px;
+	height: 70px;
+	background-image: url(../images/button_appstore.png);
+	background-repeat: no-repeat;
+	text-align: center;
+}
+#tab_button_download {
+	margin: 0 120px 0 120px;
+	height: 70px;
+	background-image: url(../images/button_download.png);
+	background-repeat: no-repeat;
+	text-align: center;
+}
+.tab_button_a{
+	text-decoration: none;
+	color: #FFF;
+	font-size: 24px;
+	font-weight: bold;
+	line-height:70px;
+}
+
+/*底部footer*/
+#footer {
+	height:50px;
+	background:#000;
+	padding-top:10px;
+
+}
+#footer p {
+	text-align:center;
+	color:#FFF;
+	font: bold 15px/20px "Trebuchet MS", Helvetica, Arial, sans-serif;
+}

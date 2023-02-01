@@ -1,0 +1,121 @@
+/*清空所以内外边距*/
+* { 
+	padding: 0;
+	margin: 0; 
+}
+
+body {
+	background:#FFF;
+}
+
+/*框架page*/
+#page {
+	width:320px;
+	padding:0 auto;
+	margin:0 auto;
+	background:#FFF;
+}
+
+/*头部header*/
+#header {
+	width:320px;
+	height:290px;
+}
+
+#top {
+	width:320px;
+	height:90px;
+	background:url(top-320-90.png);
+	background-repeat:no-repeat;
+}
+
+#logo {
+	width:320px;
+	height:100px;
+	background-image:url(logo-320-100.png);
+	background-repeat:no-repeat;
+}
+#logo p {
+	font-size: 14px;
+	font-weight: bold;
+	text-align: center;
+}
+
+/*导航*/
+#nav {
+	width:320px;
+	height:100px;
+	background:#63F;
+}
+#nav table tr td {
+	text-align:center;
+
+}
+#nav table tr td a {
+	color:#FFF;
+	text-decoration: none;
+	font: bold 18px/25px "Trebuchet MS", Helvetica, Arial, sans-serif;
+	letter-spacing: 1px;	
+}
+#nav table tr td #current {	
+	color:#F60;
+}
+
+
+/*内容部分*/
+#content {
+
+}
+
+/*分项*/
+.tab{
+	width:320px;
+	height:320px;
+	background-image:url(tab_bg-320-320.png);
+	background-repeat:no-repeat;
+}
+.tab_blank{
+	height:35px;
+}
+
+.tab_text{
+	width:240px;
+	height:190px;
+	margin:0 auto;
+}
+
+/*按钮字体*/
+.tab_button_a {
+	color:#FFF;
+	text-decoration: none;
+	font: bold 20px/70px "Trebuchet MS", Helvetica, Arial, sans-serif;	
+}
+/*按钮*/
+#tab_button_appstore{
+	text-align:center;
+	width:250px;
+	height:70px;
+	background-image:url(button_appstore-250-70.png);
+	background-repeat:no-repeat;
+	margin:0 auto;
+}
+#tab_button_download{
+	text-align:center;
+	width:250px;
+	height:70px;
+	background-image:url(button_download-250-70.png);
+	background-repeat:no-repeat;
+	margin:0 auto;
+}
+
+
+/*底部footer*/
+#footer {
+	width:320px;
+	background:#888;
+}
+#footer p {
+	text-align:center;
+	color:#FFF;
+	font: bold 14px/25px "Trebuchet MS", Helvetica, Arial, sans-serif;
+}

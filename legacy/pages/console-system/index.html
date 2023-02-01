@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Console-System</title>
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            color: #00FF00;
+            background-color: black;
+            padding: 50px;
+            font-family: Consolas, Monaco, monospace;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+    </style>
+</head>
+<body>
+
+<div id="output"></div>
+<div id="input">
+    $ <span id="command"></span><span id="cursor">_</span>
+</div>
+<div id="bottom"></div>
+
+<script>
+
+    (function () {
+
+        var output = document.getElementById('output');
+        var input = document.getElementById('input');
+        var command = document.getElementById('command');
+        var cursor = document.getElementById('cursor');
+        var bottom = document.getElementById('bottom');
+
+        function println(text) {
+            text = text || '';
+            var line = document.createElement('p');
+            line.innerHTML = text + '<br>';
+            output.appendChild(line);
+        }
+
+        window.addEventListener('keypress', function (event) {
+            if (event.keyCode !== 13 && event.keyCode !== 8) {
+                command.innerHTML += String.fromCharCode(event.keyCode);
+            }
+        });
+
+        window.addEventListener('keydown', function () {
+            if(event.keyCode === 13) {
+                var commandText = command.innerText;
+                command.innerHTML = '';
+                println('$ ' + commandText);
+
+                if (commandText === 'clear') {
+                    output.innerHTML = '';
+                } else if (commandText === 'hello') {
+                    println('world');
+                } else if (commandText === 'goto git') {
+                    println('redirecting...');
+                    window.location.href="https://github.com/TakWolf";
+                } else {
+                    println(commandText + ': command not found');
+                }
+
+                window.location.href="#bottom";
+            } else if(event.keyCode === 8) {
+                command.innerHTML = command.innerHTML.substring(0, command.innerHTML.length - 1);
+                event.preventDefault();
+            }
+        });
+
+        window.setInterval(function() {
+            if (cursor.innerHTML === ' ') {
+                cursor.innerHTML = '_';
+            } else  {
+                cursor.innerHTML = ' ';
+            }
+        }, 500);
+
+        println('TakWolf Console System [Version 0.0.1]');
+        println('(c) 2014 TakWolf (takwolf@foxmail.com)');
+        println();
+
+    })();
+
+</script>
+
+</body>
+</html>
