@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        @font-face {
+            font-family: Fusion-Pixel-12-proportional-zh_hans;
+            src: url("https://fusion-pixel-font.takwolf.com/fusion-pixel-12px-proportional-zh_hans.woff2");
+        }
+        .pixel-buttion {
+            padding-left: 16px;
+            padding-right: 16px;
+            font-family: Fusion-Pixel-12-proportional-zh_hans, sans-serif;
+            font-size: 24px;
+            border-color: #00adef;
+            border-width: 1px;
+            border-style: solid;
+            border-radius: 16px;
+            line-height: 40px;
+        }
+        .pixel-buttion2 {
+            padding-left: 16px;
+            padding-right: 16px;
+            padding-bottom: 2px;  /* 添加内边距来修复对其问题 */
+            font-family: Fusion-Pixel-12-proportional-zh_hans, sans-serif;
+            font-size: 24px;
+            border-color: #00adef;
+            border-width: 1px;
+            border-style: solid;
+            border-radius: 16px;
+            line-height: 40px;  /* 实际高度为 42px */
+        }
+    </style>
+</head>
+<body>
+<button class="pixel-buttion">默认不修正</button>
+<button class="pixel-buttion2">底部添加内边距修正</button>
+</body>
+</html>
