@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Title</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
     <style>
         * {
             margin: 0;
@@ -14,6 +13,10 @@
         @font-face {
             font-family: Fusion-Pixel-12-proportional-zh_hans;
             src: url("./fusion-pixel-12px-proportional-zh_hans.woff2");
+        }
+        @font-face {
+            font-family: SourceHans;
+            src: url("./SourceHanSans-Regular-SC.otf");
         }
         .ruler-1 {
             position: fixed;
@@ -40,11 +43,8 @@
             position: fixed;
             top: 0;
             width: 100%;
-            display: flex;
-            flex-direction: column;
         }
         .font-1 {
-            height: 42px;
             padding-left: 16px;
             padding-right: 16px;
             font-family: Fusion-Pixel-12-proportional-zh_hans, sans-serif;
@@ -53,8 +53,20 @@
             border-width: 1px;
             border-style: solid;
             border-radius: 16px;
-            display: flex;
-            align-items: center;
+            line-height: 40px;
+            display: inline-block;
+        }
+        .font-2 {
+            padding-left: 16px;
+            padding-right: 16px;
+            font-family: SourceHans, sans-serif;
+            font-size: 24px;
+            border-color: #00adef;
+            border-width: 1px;
+            border-style: solid;
+            border-radius: 16px;
+            line-height: 40px;
+            display: inline-block;
         }
     </style>
 </head>
@@ -63,8 +75,8 @@
 <div class="ruler-2"></div>
 <div class="ruler-3"></div>
 <div class="gui">
-    <div class="font-1"><span class="material-symbols-outlined">task</span>按钮</div>
-    <div class="font-1"><span class="material-symbols-outlined">task</span>按钮</div>
+    <div class="font-1">这是一段文字</div>
+    <div class="font-2">这是一段文字</div>
 </div>
 </body>
 </html>
