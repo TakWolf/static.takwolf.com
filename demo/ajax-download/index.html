@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button id="download">Ajax 下载</button>
+
+<script type="module">
+  import axios from './axios.js'
+
+  document.getElementById('download').onclick = async () => {
+    const response = await axios.get('axios-1.7.7.tgz', {
+      responseType: 'blob',
+    })
+    const link = document.createElement('a')
+    link.href = window.URL.createObjectURL(new Blob([response.data]))
+    link.setAttribute('download', 'axios-1.7.7.tgz');
+    document.body.appendChild(link)
+    link.click()
+    link.remove()
+  }
+</script>
+</body>
+</html>
