@@ -1,0 +1,10 @@
+@font-face {
+    font-family: ark-pixel-12-proportional-zh_cn;
+    src: url("https://fusion-pixel-font.takwolf.com/fusion-pixel-12px-proportional-zh_hans.otf.woff2");
+}
+.user_page {
+    font-family: ark-pixel-12-proportional-zh_cn, sans-serif;
+}
+.footer {
+    font-family: ark-pixel-12-proportional-zh_cn, sans-serif;
+}
