@@ -1,0 +1,32 @@
+@keyframes background-scrolling {
+    100% {
+        background-position: 96px 96px;
+    }
+}
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: -1;
+    background-color: #1c82e5;
+    background-image: linear-gradient(45deg, dodgerblue 25%, transparent 25%, transparent 75%, dodgerblue 75%), linear-gradient(-45deg, dodgerblue 25%, transparent 25%, transparent 75%, dodgerblue 75%);
+    background-size: 96px 96px;
+    background-attachment: fixed;
+    animation: background-scrolling 4s infinite linear;
+}
+#wrapper {
+    background-color: transparent;
+}
+@font-face {
+    font-family: ark-pixel-12-proportional-zh_cn;
+    src: url("https://ark-pixel-font.takwolf.com/ark-pixel-12px-proportional-zh_cn.otf.woff2");
+}
+.view_game_page {
+    font-family: ark-pixel-12-proportional-zh_cn, sans-serif;
+}
+#view_game_footer {
+    font-family: ark-pixel-12-proportional-zh_cn, sans-serif;
+}
