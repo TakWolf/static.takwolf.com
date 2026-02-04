@@ -21,12 +21,12 @@ body::before {
     background-color: transparent;
 }
 @font-face {
-    font-family: jelly-pixel-12-proportional-zh_cn;
+    font-family: jelly-pixel-12px-proportional-zh_cn;
     src: url("https://jelly-pixel-font.takwolf.com/jelly-pixel-12px-proportional-zh_cn.otf.woff2");
 }
 .view_game_page {
-    font-family: jelly-pixel-12-proportional-zh_cn, sans-serif;
+    font-family: jelly-pixel-12px-proportional-zh_cn, sans-serif;
 }
 #view_game_footer {
-    font-family: jelly-pixel-12-proportional-zh_cn, sans-serif;
+    font-family: jelly-pixel-12px-proportional-zh_cn, sans-serif;
 }

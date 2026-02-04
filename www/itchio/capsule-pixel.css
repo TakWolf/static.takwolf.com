@@ -1,0 +1,32 @@
+@keyframes background-scrolling {
+    100% {
+        background-position: 96px 96px;
+    }
+}
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: -1;
+    background-color: #e5c100;
+    background-image: linear-gradient(45deg, gold 25%, transparent 25%, transparent 75%, gold 75%), linear-gradient(-45deg, gold 25%, transparent 25%, transparent 75%, gold 75%);
+    background-size: 96px 96px;
+    background-attachment: fixed;
+    animation: background-scrolling 4s infinite linear;
+}
+#wrapper {
+    background-color: transparent;
+}
+@font-face {
+    font-family: capsule-pixel-12x16px-zh_cn;
+    src: url("https://capsule-pixel-font.takwolf.com/capsule-pixel-12x16px-zh_cn.otf.woff2");
+}
+.view_game_page {
+    font-family: capsule-pixel-12x16px-zh_cn, sans-serif;
+}
+#view_game_footer {
+    font-family: capsule-pixel-12x16px-zh_cn, sans-serif;
+}
