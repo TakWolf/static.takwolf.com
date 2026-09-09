@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Juha Pixel Font 阿拉伯文字静态样张与塑形对比测试">
+  <title>Juha Pixel Font — Arabic Type Specimen</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="hero">
+    <nav class="masthead" aria-label="页面导航">
+      <a class="wordmark" href="#top">JUHA / جُحا</a>
+      <div class="nav-links">
+        <a href="#compare">字体对比</a>
+        <a href="#reading">长文阅读</a>
+        <a href="#shaping">塑形测试</a>
+      </div>
+    </nav>
+    <div class="hero-body" id="top">
+      <p class="eyebrow">Arabic pixel typeface · 24 px master</p>
+      <h1><span>JUHA</span><b lang="ar" dir="rtl">جُحَا</b></h1>
+      <p class="hero-copy">将阿拉伯文字的连接、节奏和附标转换为清晰的像素结构。</p>
+    </div>
+    <div class="hero-meta">
+      <span>Regular</span>
+      <span>2400 UPM</span>
+      <span>RTL · GSUB · GPOS</span>
+    </div>
+  </header>
+
+  <main>
+    <aside class="controls" aria-label="样张控制">
+      <div class="control-group control-grow">
+        <label for="size">字号 <output id="size-output" for="size">32 px</output></label>
+        <input id="size" type="range" min="12" max="112" value="32" step="1">
+      </div>
+      <div class="control-group control-grow">
+        <label for="leading">行高 <output id="leading-output" for="leading">1.5</output></label>
+        <input id="leading" type="range" min="12" max="24" value="15" step="1">
+      </div>
+      <label class="switch"><input id="marks" type="checkbox" checked><span>附标</span></label>
+      <button id="reset" type="button">重置</button>
+    </aside>
+
+    <section class="intro section-dark">
+      <div class="section-index">01</div>
+      <div>
+        <p class="section-kicker">Typeface overview</p>
+        <h2>五种渲染，<br>同一段文字。</h2>
+      </div>
+      <p>Juha 以 24 像素网格重构字形；Noto Sans、Naskh 与 Kufi 提供三种成熟参照；系统字体展示当前设备与浏览器的默认选择。所有字体均由浏览器原生 OpenType 塑形引擎渲染。</p>
+    </section>
+
+    <section class="section" id="compare">
+      <div class="section-heading">
+        <div><span>02</span><p>Live comparison</p></div>
+        <h2>字体对比</h2>
+        <p>下方文字可直接编辑。输入阿拉伯语、波斯语、乌尔都语或混合方向内容，五栏会保持同步。</p>
+      </div>
+      <label class="editor-label" for="comparison-input">同步测试文本</label>
+      <textarea id="comparison-input" class="editor" lang="ar" dir="rtl" rows="3" spellcheck="false">اللغة العربية جميلة وواضحة — جُحا يختبر الحروفَ والأرقامَ ٢٠٢٦.</textarea>
+      <div class="comparison-grid">
+        <article class="font-panel">
+          <div class="panel-head"><h3>Juha Pixel 24</h3><span>Local TTF</span></div>
+          <div class="sample font-juha sync-text" lang="ar" dir="rtl"></div>
+        </article>
+        <article class="font-panel">
+          <div class="panel-head"><h3>Noto Sans Arabic</h3><span>Sans</span></div>
+          <div class="sample font-noto-sans sync-text" lang="ar" dir="rtl"></div>
+        </article>
+        <article class="font-panel">
+          <div class="panel-head"><h3>Noto Naskh Arabic</h3><span>Naskh</span></div>
+          <div class="sample font-noto-naskh sync-text" lang="ar" dir="rtl"></div>
+        </article>
+        <article class="font-panel">
+          <div class="panel-head"><h3>Noto Kufi Arabic</h3><span>Kufi</span></div>
+          <div class="sample font-noto-kufi sync-text" lang="ar" dir="rtl"></div>
+        </article>
+        <article class="font-panel">
+          <div class="panel-head"><h3>System Arabic</h3><span>Device</span></div>
+          <div class="sample font-system sync-text" lang="ar" dir="rtl"></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section reading-section" id="reading">
+      <div class="section-heading">
+        <div><span>03</span><p>Continuous text</p></div>
+        <h2>长文阅读</h2>
+        <p>观察段落灰度、词间距、跨行连接、附标和标点在连续阅读中的表现。点击标签切换字体。</p>
+      </div>
+      <div class="font-tabs" role="group" aria-label="长文字体">
+        <button class="font-tab active" type="button" data-reading-font="juha">Juha</button>
+        <button class="font-tab" type="button" data-reading-font="noto-sans">Noto Sans</button>
+        <button class="font-tab" type="button" data-reading-font="noto-naskh">Noto Naskh</button>
+        <button class="font-tab" type="button" data-reading-font="noto-kufi">Noto Kufi</button>
+        <button class="font-tab" type="button" data-reading-font="system">系统字体</button>
+      </div>
+      <article id="reading-copy" class="reading-copy font-juha" lang="ar" dir="rtl">
+        <h3>الريح الشمالية والشمس</h3>
+        <p>كانت الريح الشمالية والشمس تتجادلان حول أيهما أقوى. وفي تلك اللحظة رأتا مسافرًا يسير في الطريق ملتفًا بعباءة. اتفقتا على أن من تنجح في جعل المسافر يخلع عباءته تُعَدّ الأقوى. بدأت الريح الشمالية تهب بكل قوتها، لكن كلما اشتد هبوبها ازداد المسافر التفافًا بعباءته. وأخيرًا استسلمت الريح الشمالية. ثم أشرقت الشمس على المسافر بدفء، فخلع عباءته على الفور. وهكذا اضطرت الريح الشمالية إلى الاعتراف بأن الشمس أقوى منها.</p>
+        <p>وفي مدينةٍ قديمةٍ، كان جُحا يمشي في السُّوق عند المساء، يتأمّل أسماء الدكاكين المضيئة ويسمع الباعة ينادون: «تفضّلوا، لدينا فاكهةٌ طازجة!» ثم توقّف أمام مكتبة صغيرة، وفتح كتابًا كُتب على غلافه: القراءةُ نافذةٌ واسعةٌ على العالم. قرأ صفحاتٍ عن النجوم والبحار والرحلات، وسجّل موعد العودة: الساعة ٨:٣٠ مساءً، يوم ١٥ سبتمبر ٢٠٢٦.</p>
+      </article>
+      <p class="source-note">第一段《北风与太阳》阿拉伯语正文原样取自 The North Wind and the Sun 项目，采用 CC0 1.0 Universal。</p>
+    </section>
+
+    <section class="section section-tests" id="shaping">
+      <div class="section-heading">
+        <div><span>04</span><p>OpenType diagnostics</p></div>
+        <h2>Arabic shaping</h2>
+        <p>覆盖连接形、断连、必要连字、组合字符、附标定位、数字、双向文本与区域语言字形。每项并排显示 Juha、三款 Noto 与系统字体。</p>
+      </div>
+      <div class="test-list">
+        <article class="test-row">
+          <div class="test-meta"><span>01</span><h3>连接形态</h3><p>isol · init · medi · fina</p></div>
+          <div class="test-samples"><p class="font-juha" lang="ar" dir="rtl">ب بب ببتبت · ن نن ننن · س سس سسس · ع عع ععع · هـ ههه</p><p class="font-noto-sans" lang="ar" dir="rtl">ب بب ببتبت · ن نن ننن · س سس سسس · ع عع ععع · هـ ههه</p><p class="font-noto-naskh" lang="ar" dir="rtl">ب بب ببتبت · ن نن ننن · س سس سسس · ع عع ععع · هـ ههه</p><p class="font-noto-kufi" lang="ar" dir="rtl">ب بب ببتبت · ن نن ننن · س سس سسس · ع عع ععع · هـ ههه</p><p class="font-system" lang="ar" dir="rtl">ب بب ببتبت · ن نن ننن · س سس سسس · ع عع ععع · هـ ههه</p></div>
+        </article>
+        <article class="test-row">
+          <div class="test-meta"><span>02</span><h3>连接边界</h3><p>right-joining letters</p></div>
+          <div class="test-samples"><p class="font-juha" lang="ar" dir="rtl">با باب · بدا دار · ذرا · رز · واد · أدو · زهور · داود</p><p class="font-noto-sans" lang="ar" dir="rtl">با باب · بدا دار · ذرا · رز · واد · أدو · زهور · داود</p><p class="font-noto-naskh" lang="ar" dir="rtl">با باب · بدا دار · ذرا · رز · واد · أدو · زهور · داود</p><p class="font-noto-kufi" lang="ar" dir="rtl">با باب · بدا دار · ذرا · رز · واد · أدو · زهور · داود</p><p class="font-system" lang="ar" dir="rtl">با باب · بدا دار · ذرا · رز · واد · أدو · زهور · داود</p></div>
+        </article>
+        <article class="test-row">
+          <div class="test-meta"><span>03</span><h3>Lam–Alef</h3><p>rlig ligatures</p></div>
+          <div class="test-samples"><p class="font-juha" lang="ar" dir="rtl">لا لأ لإ لآ · بلا تلا فلا كلا · والله لا إله إلا الله</p><p class="font-noto-sans" lang="ar" dir="rtl">لا لأ لإ لآ · بلا تلا فلا كلا · والله لا إله إلا الله</p><p class="font-noto-naskh" lang="ar" dir="rtl">لا لأ لإ لآ · بلا تلا فلا كلا · والله لا إله إلا الله</p><p class="font-noto-kufi" lang="ar" dir="rtl">لا لأ لإ لآ · بلا تلا فلا كلا · والله لا إله إلا الله</p><p class="font-system" lang="ar" dir="rtl">لا لأ لإ لآ · بلا تلا فلا كلا · والله لا إله إلا الله</p></div>
+        </article>
+        <article class="test-row marks-test">
+          <div class="test-meta"><span>04</span><h3>单层附标</h3><p>mark positioning</p></div>
+          <div class="test-samples"><p class="font-juha" lang="ar" dir="rtl">بَ بِ بُ بْ بّ · تَ تُ تِ · كَتَبَ · قُرِئَ · سُئِلَ</p><p class="font-noto-sans" lang="ar" dir="rtl">بَ بِ بُ بْ بّ · تَ تُ تِ · كَتَبَ · قُرِئَ · سُئِلَ</p><p class="font-noto-naskh" lang="ar" dir="rtl">بَ بِ بُ بْ بّ · تَ تُ تِ · كَتَبَ · قُرِئَ · سُئِلَ</p><p class="font-noto-kufi" lang="ar" dir="rtl">بَ بِ بُ بْ بّ · تَ تُ تِ · كَتَبَ · قُرِئَ · سُئِلَ</p><p class="font-system" lang="ar" dir="rtl">بَ بِ بُ بْ بّ · تَ تُ تِ · كَتَبَ · قُرِئَ · سُئِلَ</p></div>
+        </article>
+        <article class="test-row marks-test">
+          <div class="test-meta"><span>05</span><h3>叠加附标</h3><p>mkmk stacking</p></div>
+          <div class="test-samples"><p class="font-juha" lang="ar" dir="rtl">بَّ بُّ بِّ · تَنَوُّع · مُحَمَّد · الشَّمْسُ · مُسْتَقِلٌّ</p><p class="font-noto-sans" lang="ar" dir="rtl">بَّ بُّ بِّ · تَنَوُّع · مُحَمَّد · الشَّمْسُ · مُسْتَقِلٌّ</p><p class="font-noto-naskh" lang="ar" dir="rtl">بَّ بُّ بِّ · تَنَوُّع · مُحَمَّد · الشَّمْسُ · مُسْتَقِلٌّ</p><p class="font-noto-kufi" lang="ar" dir="rtl">بَّ بُّ بِّ · تَنَوُّع · مُحَمَّد · الشَّمْسُ · مُسْتَقِلٌّ</p><p class="font-system" lang="ar" dir="rtl">بَّ بُّ بِّ · تَنَوُّع · مُحَمَّد · الشَّمْسُ · مُسْتَقِلٌّ</p></div>
+        </article>
+        <article class="test-row marks-test">
+          <div class="test-meta"><span>06</span><h3>组合序列</h3><p>ccmp and canonically related input</p></div>
+          <div class="test-samples"><p class="font-juha" lang="ar" dir="rtl">أ إ أ · إ إ · آ آ · ؤ ؤ · ئ ئ · ٱللّٰه</p><p class="font-noto-sans" lang="ar" dir="rtl">أ إ أ · إ إ · آ آ · ؤ ؤ · ئ ئ · ٱللّٰه</p><p class="font-noto-naskh" lang="ar" dir="rtl">أ إ أ · إ إ · آ آ · ؤ ؤ · ئ ئ · ٱللّٰه</p><p class="font-noto-kufi" lang="ar" dir="rtl">أ إ أ · إ إ · آ آ · ؤ ؤ · ئ ئ · ٱللّٰه</p><p class="font-system" lang="ar" dir="rtl">أ إ أ · إ إ · آ آ · ؤ ؤ · ئ ئ · ٱللّٰه</p></div>
+        </article>
+        <article class="test-row">
+          <div class="test-meta"><span>07</span><h3>标点与镜像</h3><p>rtlm and paired punctuation</p></div>
+          <div class="test-samples"><p class="font-juha" lang="ar" dir="rtl">مرحبًا، كيف حالك؟ نعم؛ بخير. ﴿النص﴾ (العربية) [اختبار] {يمين}</p><p class="font-noto-sans" lang="ar" dir="rtl">مرحبًا، كيف حالك؟ نعم؛ بخير. ﴿النص﴾ (العربية) [اختبار] {يمين}</p><p class="font-noto-naskh" lang="ar" dir="rtl">مرحبًا، كيف حالك؟ نعم؛ بخير. ﴿النص﴾ (العربية) [اختبار] {يمين}</p><p class="font-noto-kufi" lang="ar" dir="rtl">مرحبًا، كيف حالك؟ نعم؛ بخير. ﴿النص﴾ (العربية) [اختبار] {يمين}</p><p class="font-system" lang="ar" dir="rtl">مرحبًا، كيف حالك؟ نعم؛ بخير. ﴿النص﴾ (العربية) [اختبار] {يمين}</p></div>
+        </article>
+        <article class="test-row">
+          <div class="test-meta"><span>08</span><h3>数字与双向</h3><p>Arabic, Latin and bidi runs</p></div>
+          <div class="test-samples"><p class="font-juha" lang="ar" dir="rtl">٠١٢٣٤٥٦٧٨٩ · ۰۱۲۳۴۵۶۷۸۹ · 0123456789 · الإصدار Juha 2.0 — ٢٠٢٦/٠٩/٠٩</p><p class="font-noto-sans" lang="ar" dir="rtl">٠١٢٣٤٥٦٧٨٩ · ۰۱۲۳۴۵۶۷۸۹ · 0123456789 · الإصدار Juha 2.0 — ٢٠٢٦/٠٩/٠٩</p><p class="font-noto-naskh" lang="ar" dir="rtl">٠١٢٣٤٥٦٧٨٩ · ۰۱۲۳۴۵۶۷۸۹ · 0123456789 · الإصدار Juha 2.0 — ٢٠٢٦/٠٩/٠٩</p><p class="font-noto-kufi" lang="ar" dir="rtl">٠١٢٣٤٥٦٧٨٩ · ۰۱۲۳۴۵۶۷۸۹ · 0123456789 · الإصدار Juha 2.0 — ٢٠٢٦/٠٩/٠٩</p><p class="font-system" lang="ar" dir="rtl">٠١٢٣٤٥٦٧٨٩ · ۰۱۲۳۴۵۶۷۸۹ · 0123456789 · الإصدار Juha 2.0 — ٢٠٢٦/٠٩/٠٩</p></div>
+        </article>
+        <article class="test-row">
+          <div class="test-meta"><span>09</span><h3>波斯语</h3><p>locl FAR and Persian letters</p></div>
+          <div class="test-samples"><p class="font-juha" lang="fa" dir="rtl">گچ‌پژوهیِ فارسی · کیک کوچک · می‌روم · خانه‌ها · ۱۴۰۵</p><p class="font-noto-sans" lang="fa" dir="rtl">گچ‌پژوهیِ فارسی · کیک کوچک · می‌روم · خانه‌ها · ۱۴۰۵</p><p class="font-noto-naskh" lang="fa" dir="rtl">گچ‌پژوهیِ فارسی · کیک کوچک · می‌روم · خانه‌ها · ۱۴۰۵</p><p class="font-noto-kufi" lang="fa" dir="rtl">گچ‌پژوهیِ فارسی · کیک کوچک · می‌روم · خانه‌ها · ۱۴۰۵</p><p class="font-system" lang="fa" dir="rtl">گچ‌پژوهیِ فارسی · کیک کوچک · می‌روم · خانه‌ها · ۱۴۰۵</p></div>
+        </article>
+        <article class="test-row">
+          <div class="test-meta"><span>10</span><h3>乌尔都语</h3><p>locl URD and extended letters</p></div>
+          <div class="test-samples"><p class="font-juha" lang="ur" dir="rtl">اردو خوب صورت زبان ہے۔ ٹھنڈی ہوا، بڑی سڑک، پڑھائی، کھڑکی</p><p class="font-noto-sans" lang="ur" dir="rtl">اردو خوب صورت زبان ہے۔ ٹھنڈی ہوا، بڑی سڑک، پڑھائی، کھڑکی</p><p class="font-noto-naskh" lang="ur" dir="rtl">اردو خوب صورت زبان ہے۔ ٹھنڈی ہوا، بڑی سڑک، پڑھائی، کھڑکی</p><p class="font-noto-kufi" lang="ur" dir="rtl">اردو خوب صورت زبان ہے۔ ٹھنڈی ہوا، بڑی سڑک، پڑھائی، کھڑکی</p><p class="font-system" lang="ur" dir="rtl">اردو خوب صورت زبان ہے۔ ٹھنڈی ہوا، بڑی سڑک، پڑھائی، کھڑکی</p></div>
+        </article>
+        <article class="test-row">
+          <div class="test-meta"><span>11</span><h3>零宽控制符</h3><p>ZWNJ and ZWJ boundaries</p></div>
+          <div class="test-samples"><p class="font-juha" lang="ar" dir="rtl">بب · ب‌ب · ب‍ب · می‌روم · می‍روم</p><p class="font-noto-sans" lang="ar" dir="rtl">بب · ب‌ب · ب‍ب · می‌روم · می‍روم</p><p class="font-noto-naskh" lang="ar" dir="rtl">بب · ب‌ب · ب‍ب · می‌روم · می‍روم</p><p class="font-noto-kufi" lang="ar" dir="rtl">بب · ب‌ب · ب‍ب · می‌روم · می‍روم</p><p class="font-system" lang="ar" dir="rtl">بب · ب‌ب · ب‍ب · می‌روم · می‍روم</p></div>
+        </article>
+        <article class="test-row">
+          <div class="test-meta"><span>12</span><h3>字符覆盖</h3><p>Arabic core repertoire</p></div>
+          <div class="test-samples"><p class="font-juha" lang="ar" dir="rtl">ء آ أ ؤ إ ئ ا ب ة ت ث ج ح خ د ذ ر ز س ش ص ض ط ظ ع غ ف ق ك ل م ن ه و ى ي</p><p class="font-noto-sans" lang="ar" dir="rtl">ء آ أ ؤ إ ئ ا ب ة ت ث ج ح خ د ذ ر ز س ش ص ض ط ظ ع غ ف ق ك ل م ن ه و ى ي</p><p class="font-noto-naskh" lang="ar" dir="rtl">ء آ أ ؤ إ ئ ا ب ة ت ث ج ح خ د ذ ر ز س ش ص ض ط ظ ع غ ف ق ك ل م ن ه و ى ي</p><p class="font-noto-kufi" lang="ar" dir="rtl">ء آ أ ؤ إ ئ ا ب ة ت ث ج ح خ د ذ ر ز س ش ص ض ط ظ ع غ ف ق ك ل م ن ه و ى ي</p><p class="font-system" lang="ar" dir="rtl">ء آ أ ؤ إ ئ ا ب ة ت ث ج ح خ د ذ ر ز س ش ص ض ط ظ ع غ ف ق ك ل م ن ه و ى ي</p></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section scale-section">
+      <div class="section-heading">
+        <div><span>05</span><p>Pixel sizes</p></div>
+        <h2>尺度阶梯</h2>
+        <p>12 至 96 像素的固定字号，重点检查 24 像素基准及整数倍缩放时的像素轮廓。</p>
+      </div>
+      <div class="scale-list font-juha" lang="ar" dir="rtl">
+        <p style="font-size:12px"><span>12</span>الخط العربي في شبكة بكسل</p>
+        <p style="font-size:24px"><span>24</span>الخط العربي في شبكة بكسل</p>
+        <p style="font-size:36px"><span>36</span>الخط العربي في شبكة بكسل</p>
+        <p style="font-size:48px"><span>48</span>الخط العربي في شبكة بكسل</p>
+        <p style="font-size:72px"><span>72</span>الخط العربي في شبكة بكسل</p>
+        <p style="font-size:96px"><span>96</span>الخط العربي في شبكة بكسل</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div><strong>JUHA</strong><span lang="ar" dir="rtl">جُحا</span></div>
+    <p>Juha Pixel Font · Arabic specimen · Local static build</p>
+    <a href="#top">返回顶部 ↑</a>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,711 @@
+@font-face {
+  font-family: "Juha Pixel 24";
+  src: url("fonts/JuhaPixel24-Regular.ttf") format("truetype");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Noto Sans Arabic Local";
+  src: url("fonts/NotoSansArabic-Regular.ttf") format("truetype");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Noto Naskh Arabic Local";
+  src: url("fonts/NotoNaskhArabic-Regular.ttf") format("truetype");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Noto Kufi Arabic Local";
+  src: url("fonts/NotoKufiArabic-Regular.ttf") format("truetype");
+  font-display: swap;
+}
+
+:root {
+  --ink: #161812;
+  --paper: #f0eadb;
+  --paper-deep: #dcd3be;
+  --acid: #c8ff35;
+  --orange: #ff5c35;
+  --line: rgba(22, 24, 18, 0.28);
+  --display-size: 32px;
+  --display-leading: 1.5;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  background: var(--ink);
+}
+
+body {
+  margin: 0;
+  color: var(--ink);
+  background: var(--paper);
+  font-family: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input,
+textarea {
+  color: inherit;
+  font: inherit;
+}
+
+button,
+input[type="range"] {
+  cursor: pointer;
+}
+
+.hero {
+  min-height: clamp(300px, 42svh, 420px);
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  overflow: hidden;
+  padding: 16px clamp(20px, 3vw, 48px) 18px;
+  color: var(--paper);
+  background: var(--ink);
+}
+
+.masthead,
+.hero-meta,
+.section-heading,
+.panel-head,
+.test-row,
+footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.masthead {
+  align-items: center;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(240, 234, 219, 0.35);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.wordmark {
+  font-weight: 800;
+}
+
+.nav-links {
+  display: flex;
+  gap: clamp(16px, 3vw, 42px);
+}
+
+.nav-links a:hover,
+footer a:hover {
+  color: var(--acid);
+}
+
+.hero-body {
+  align-self: center;
+  padding: 22px 0;
+}
+
+.eyebrow,
+.section-kicker,
+.section-heading p,
+.test-meta p,
+.source-note {
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+.eyebrow {
+  margin: 0 0 12px;
+  color: var(--acid);
+}
+
+h1 {
+  position: relative;
+  margin: 0;
+  font-size: clamp(64px, 11vw, 150px);
+  font-weight: 900;
+  letter-spacing: -0.11em;
+  line-height: 0.7;
+}
+
+h1 span {
+  display: block;
+}
+
+h1 b {
+  position: absolute;
+  right: 1vw;
+  bottom: -0.22em;
+  color: var(--orange);
+  font-family: "Juha Pixel 24", sans-serif;
+  font-size: 0.38em;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 1;
+}
+
+.hero-copy {
+  max-width: 550px;
+  margin: 28px 0 0 auto;
+  font-family: system-ui, sans-serif;
+  font-size: clamp(14px, 1.4vw, 19px);
+  line-height: 1.5;
+}
+
+.hero-meta {
+  align-items: flex-end;
+  color: rgba(240, 234, 219, 0.7);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.controls {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  gap: clamp(16px, 3vw, 42px);
+  padding: 10px clamp(20px, 3vw, 48px);
+  border-bottom: 1px solid var(--ink);
+  background: rgba(240, 234, 219, 0.94);
+  backdrop-filter: blur(12px);
+}
+
+.control-group {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.control-grow {
+  flex: 1;
+}
+
+.control-group label {
+  min-width: 98px;
+  font-size: 11px;
+  text-transform: uppercase;
+}
+
+output {
+  color: #d53e1d;
+}
+
+input[type="range"] {
+  width: 100%;
+  accent-color: var(--orange);
+}
+
+.switch {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  white-space: nowrap;
+}
+
+.switch input {
+  width: 17px;
+  height: 17px;
+  accent-color: var(--ink);
+}
+
+#reset,
+.font-tab {
+  padding: 9px 15px;
+  border: 1px solid var(--ink);
+  border-radius: 0;
+  background: transparent;
+  font-size: 11px;
+  text-transform: uppercase;
+}
+
+#reset:hover,
+.font-tab:hover,
+.font-tab.active {
+  color: var(--paper);
+  background: var(--ink);
+}
+
+.section,
+.section-dark {
+  padding: clamp(36px, 4vw, 64px) clamp(20px, 3vw, 48px);
+}
+
+.section {
+  border-bottom: 1px solid var(--ink);
+}
+
+.section-dark {
+  display: grid;
+  grid-template-columns: 64px minmax(280px, 1.4fr) minmax(260px, 0.8fr);
+  gap: 2.5vw;
+  color: var(--paper);
+  background: var(--ink);
+}
+
+.section-index {
+  color: var(--acid);
+  font-size: 12px;
+}
+
+.section-kicker {
+  margin: 0 0 12px;
+  color: var(--acid);
+}
+
+.section-dark h2,
+.section-heading h2 {
+  margin: 0;
+  font-family: system-ui, sans-serif;
+  font-size: clamp(34px, 4.5vw, 68px);
+  font-weight: 750;
+  letter-spacing: -0.06em;
+  line-height: 0.96;
+}
+
+.section-dark > p {
+  align-self: end;
+  margin: 0;
+  color: rgba(240, 234, 219, 0.72);
+  font-family: system-ui, sans-serif;
+  line-height: 1.5;
+}
+
+.section-heading {
+  align-items: flex-start;
+  margin-bottom: clamp(20px, 2.5vw, 36px);
+}
+
+.section-heading > div {
+  flex: 0 0 110px;
+}
+
+.section-heading span {
+  color: #d53e1d;
+  font-size: 12px;
+}
+
+.section-heading p {
+  max-width: 300px;
+  margin: 10px 0 0;
+}
+
+.section-heading > p {
+  flex: 0 1 410px;
+  margin-top: 0;
+  font-family: system-ui, sans-serif;
+  font-size: 14px;
+  letter-spacing: 0;
+  line-height: 1.5;
+  text-transform: none;
+}
+
+.editor-label {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.editor {
+  width: 100%;
+  min-height: 92px;
+  display: block;
+  resize: vertical;
+  padding: 14px 16px;
+  border: 1px solid var(--ink);
+  border-radius: 0;
+  outline: 0;
+  background: transparent;
+  font-family: "Juha Pixel 24", sans-serif;
+  font-size: clamp(24px, 3vw, 42px);
+  line-height: 1.4;
+}
+
+.editor:focus {
+  box-shadow: inset 0 0 0 3px var(--orange);
+}
+
+.comparison-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  margin-top: 16px;
+  border-top: 1px solid var(--ink);
+  border-left: 1px solid var(--ink);
+}
+
+.font-panel {
+  min-height: 250px;
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid var(--ink);
+  border-bottom: 1px solid var(--ink);
+}
+
+.panel-head {
+  align-items: center;
+  padding: 9px 11px;
+  border-bottom: 1px solid var(--ink);
+}
+
+.panel-head h3,
+.panel-head span {
+  margin: 0;
+  font-size: 11px;
+  text-transform: uppercase;
+}
+
+.panel-head span {
+  color: #776f5f;
+}
+
+.sample {
+  flex: 1;
+  padding: clamp(12px, 1.5vw, 22px);
+  font-size: var(--display-size);
+  line-height: var(--display-leading);
+  overflow-wrap: anywhere;
+}
+
+.font-juha {
+  font-family: "Juha Pixel 24", sans-serif;
+}
+
+.font-noto-sans {
+  font-family: "Noto Sans Arabic Local", sans-serif;
+}
+
+.font-noto-naskh {
+  font-family: "Noto Naskh Arabic Local", serif;
+}
+
+.font-noto-kufi {
+  font-family: "Noto Kufi Arabic Local", sans-serif;
+}
+
+.font-system {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.reading-section {
+  background: var(--paper-deep);
+}
+
+.font-tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 18px;
+}
+
+.reading-copy {
+  max-width: 1200px;
+  margin-left: auto;
+  font-size: var(--display-size);
+  font-variant-ligatures: normal;
+  line-height: var(--display-leading);
+  text-wrap: pretty;
+}
+
+.reading-copy h3 {
+  margin: 0 0 0.45em;
+  color: #d53e1d;
+  font-size: 1.4em;
+  font-weight: 400;
+}
+
+.reading-copy p {
+  margin: 0 0 0.7em;
+}
+
+.source-note {
+  max-width: 760px;
+  margin: 24px 0 0 auto;
+  color: #6c6558;
+  text-align: right;
+}
+
+.section-tests {
+  color: var(--paper);
+  background: var(--ink);
+}
+
+.section-tests .section-heading span,
+.section-tests .section-heading > div p {
+  color: var(--acid);
+}
+
+.test-list {
+  border-top: 1px solid rgba(240, 234, 219, 0.35);
+}
+
+.test-row {
+  display: grid;
+  grid-template-columns: minmax(170px, 0.45fr) minmax(0, 2.8fr);
+  padding: 14px 0;
+  border-bottom: 1px solid rgba(240, 234, 219, 0.35);
+}
+
+.test-meta {
+  position: relative;
+  padding-left: 34px;
+}
+
+.test-meta > span {
+  position: absolute;
+  left: 0;
+  top: 3px;
+  color: var(--orange);
+  font-size: 11px;
+}
+
+.test-meta h3 {
+  margin: 0 0 4px;
+  font-family: system-ui, sans-serif;
+  font-size: 16px;
+}
+
+.test-meta p {
+  margin: 0;
+  color: rgba(240, 234, 219, 0.5);
+}
+
+.test-samples {
+  min-width: 0;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+
+.test-samples p {
+  margin: 0;
+  padding: 8px 10px;
+  font-size: clamp(18px, calc(var(--display-size) * 0.72), 34px);
+  line-height: var(--display-leading);
+  overflow-wrap: anywhere;
+}
+
+.test-samples p + p {
+  border-left: 1px dashed rgba(240, 234, 219, 0.2);
+}
+
+.test-samples p::before {
+  display: block;
+  margin-bottom: 4px;
+  color: rgba(240, 234, 219, 0.42);
+  font-family: ui-monospace, monospace;
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  text-align: left;
+}
+
+.test-samples .font-juha::before {
+  content: "JUHA";
+}
+
+.test-samples .font-noto-sans::before {
+  content: "NOTO SANS";
+}
+
+.test-samples .font-noto-naskh::before {
+  content: "NOTO NASKH";
+}
+
+.test-samples .font-noto-kufi::before {
+  content: "NOTO KUFI";
+}
+
+.test-samples .font-system::before {
+  content: "SYSTEM";
+}
+
+.scale-section {
+  background: var(--acid);
+}
+
+.scale-list p {
+  position: relative;
+  min-height: 1.8em;
+  margin: 0;
+  padding: 0.35em 70px 0.35em 0;
+  border-top: 1px solid var(--ink);
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+.scale-list p:last-child {
+  border-bottom: 1px solid var(--ink);
+}
+
+.scale-list span {
+  position: absolute;
+  right: 0;
+  top: 12px;
+  font-family: ui-monospace, monospace;
+  font-size: 10px;
+}
+
+footer {
+  align-items: flex-end;
+  padding: 24px clamp(20px, 3vw, 48px);
+  color: var(--paper);
+  background: var(--ink);
+  font-size: 11px;
+  text-transform: uppercase;
+}
+
+footer div {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  font-size: 24px;
+}
+
+footer div span {
+  color: var(--orange);
+  font-family: "Juha Pixel 24", sans-serif;
+  font-size: 34px;
+}
+
+footer p {
+  margin: 0;
+  color: rgba(240, 234, 219, 0.55);
+}
+
+.marks-hidden .marks-test {
+  display: none;
+}
+
+@media (max-width: 1200px) {
+  .comparison-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .test-samples {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 900px) {
+  .comparison-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .font-panel {
+    min-height: 220px;
+  }
+
+  .section-heading {
+    display: grid;
+    grid-template-columns: 100px 1fr;
+  }
+
+  .section-heading > p {
+    grid-column: 2;
+  }
+}
+
+@media (max-width: 720px) {
+  .nav-links {
+    display: none;
+  }
+
+  h1 {
+    font-size: 34vw;
+  }
+
+  .hero-copy {
+    margin-top: 24px;
+  }
+
+  .controls {
+    flex-wrap: wrap;
+  }
+
+  .control-grow {
+    flex: 1 1 calc(50% - 20px);
+  }
+
+  .control-group {
+    display: block;
+  }
+
+  .control-group label {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+  }
+
+  .section-dark {
+    grid-template-columns: 1fr;
+  }
+
+  .section-dark > p {
+    margin-top: 20px;
+  }
+
+  .section-heading {
+    grid-template-columns: 1fr;
+  }
+
+  .section-heading > div {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .section-heading > p {
+    grid-column: 1;
+  }
+
+  .test-row {
+    grid-template-columns: 1fr;
+  }
+
+  .test-samples {
+    grid-template-columns: 1fr;
+    margin-top: 16px;
+  }
+
+  .test-samples p + p {
+    border-top: 1px dashed rgba(240, 234, 219, 0.2);
+    border-left: 0;
+  }
+
+  footer {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 460px) {
+  .hero-meta span:nth-child(2) {
+    display: none;
+  }
+
+  .control-grow {
+    flex-basis: 100%;
+  }
+
+  .font-tabs {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .font-tab {
+    padding-inline: 6px;
+  }
+}
