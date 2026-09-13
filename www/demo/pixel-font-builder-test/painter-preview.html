@@ -1,0 +1,325 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Painter Font Alignment</title>
+<style>
+    @font-face {
+        font-family: "Demo Solid";
+        src: url("demo-solid.woff2") format("woff2");
+    }
+
+    @font-face {
+        font-family: "Demo Square Dot";
+        src: url("demo-square-dot.woff2") format("woff2");
+    }
+
+    @font-face {
+        font-family: "Demo Circle Dot";
+        src: url("demo-circle-dot.woff2") format("woff2");
+    }
+
+    :root {
+        color: #18212f;
+        background: #eef2f7;
+        font-family: ui-sans-serif, system-ui, sans-serif;
+    }
+
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        margin: 0;
+        padding: 32px;
+    }
+
+    main {
+        width: min(1120px, 100%);
+        margin: 0 auto;
+    }
+
+    h1 {
+        margin: 0 0 8px;
+        font-size: 28px;
+    }
+
+    .description {
+        margin: 0 0 24px;
+        color: #5c6677;
+    }
+
+    .controls {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 16px;
+    }
+
+    button,
+    input,
+    textarea {
+        font: inherit;
+    }
+
+    button {
+        min-height: 40px;
+        border: 1px solid #b7c0ce;
+        border-radius: 8px;
+        padding: 0 16px;
+        color: #18212f;
+        background: #fff;
+        cursor: pointer;
+    }
+
+    button:hover {
+        border-color: #3478f6;
+    }
+
+    #switch-font {
+        border-color: #2468d8;
+        color: #fff;
+        background: #2468d8;
+        font-weight: 700;
+    }
+
+    label {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    select {
+        min-height: 40px;
+        border: 1px solid #b7c0ce;
+        border-radius: 8px;
+        padding: 0 10px;
+        background: #fff;
+    }
+
+    textarea {
+        width: 100%;
+        min-height: 96px;
+        margin-bottom: 16px;
+        border: 1px solid #b7c0ce;
+        border-radius: 8px;
+        padding: 12px;
+        resize: vertical;
+        background: #fff;
+    }
+
+    .status {
+        display: flex;
+        justify-content: space-between;
+        gap: 16px;
+        margin-bottom: 8px;
+        color: #5c6677;
+        font-size: 14px;
+    }
+
+    #font-name {
+        color: #18212f;
+        font-weight: 700;
+    }
+
+    .stage {
+        --pixel-size: 6px;
+        --font-size: 72px;
+        height: 420px;
+        overflow: auto;
+        border: 1px solid #b7c0ce;
+        border-radius: 12px;
+    }
+
+    .canvas {
+        --origin-x: 48px;
+        --origin-y: 126px;
+        position: relative;
+        min-width: 100%;
+        min-height: 100%;
+        background-color: #eef3f9;
+        background-image:
+            linear-gradient(45deg, #dce5f0 25%, transparent 25%, transparent 75%, #dce5f0 75%),
+            linear-gradient(45deg, #dce5f0 25%, transparent 25%, transparent 75%, #dce5f0 75%);
+        background-position:
+            var(--origin-x) var(--origin-y),
+            calc(var(--origin-x) + var(--pixel-size)) calc(var(--origin-y) + var(--pixel-size));
+        background-size: calc(var(--pixel-size) * 2) calc(var(--pixel-size) * 2);
+    }
+
+    .sample-layer {
+        position: absolute;
+        top: 48px;
+        left: 48px;
+        margin: 0;
+        white-space: pre-wrap;
+        overflow-wrap: normal;
+        color: #101828;
+        font-size: var(--font-size);
+        line-height: 1;
+        font-synthesis: none;
+        font-kerning: none;
+        text-rendering: geometricPrecision;
+    }
+
+    .baseline-marker {
+        display: inline-block;
+        width: 0;
+        height: 0;
+        vertical-align: baseline;
+    }
+
+    .overlay-layer {
+        display: none;
+        mix-blend-mode: multiply;
+    }
+
+    .stage.overlay .sample-layer {
+        color: rgb(226 36 36 / 62%);
+    }
+
+    .stage.overlay .overlay-layer {
+        display: block;
+        color: rgb(0 105 255 / 62%);
+    }
+
+    .legend {
+        display: none;
+        gap: 18px;
+        margin-top: 10px;
+        font-size: 14px;
+    }
+
+    .legend.visible {
+        display: flex;
+    }
+
+    .red {
+        color: #d92525;
+    }
+
+    .blue {
+        color: #0069df;
+    }
+</style>
+<main>
+    <h1>Painter 字体位置验证</h1>
+    <p class="description">在完全相同的文本框、字号、行高和起点下切换三种 OTF/WOFF2 字体，观察字符起始位置与 advance 是否发生移动。</p>
+
+    <div class="controls">
+        <button id="switch-font" type="button">切换字体</button>
+        <button id="toggle-overlay" type="button">开启叠加</button>
+        <label>
+            像素倍率
+            <select id="pixel-scale">
+                <option value="2">2×</option>
+                <option value="4">4×</option>
+                <option value="6" selected>6×</option>
+                <option value="8">8×</option>
+                <option value="10">10×</option>
+                <option value="12">12×</option>
+            </select>
+            <output id="font-size-value">72px</output>
+        </label>
+    </div>
+
+    <textarea id="sample-input" spellcheck="false">ABCDEFGHIJKLMNOPQRSTUVWXYZ
+abcdefghijklmnopqrstuvwxyz
+0123456789
+AV AW AY TA To Wa Yo
+!&quot;#$%&amp;'()*+,-./:;&lt;=&gt;?@[\]^_`{|}~</textarea>
+
+    <div class="status">
+        <span>当前字体：<strong id="font-name">Solid</strong></span>
+        <span>每个棋盘格对应一个字体设计像素</span>
+    </div>
+
+    <div id="stage" class="stage">
+        <div id="canvas" class="canvas">
+            <pre id="sample" class="sample-layer"><span class="baseline-marker"></span><span class="sample-text"></span></pre>
+            <pre id="overlay" class="sample-layer overlay-layer"><span class="baseline-marker"></span><span class="sample-text"></span></pre>
+        </div>
+    </div>
+
+    <div id="legend" class="legend">
+        <span class="red">红色：当前字体</span>
+        <span class="blue">蓝色：下一种字体</span>
+    </div>
+</main>
+<script>
+    const fonts = [
+        { label: 'Solid', family: 'Demo Solid' },
+        { label: 'Square Dot', family: 'Demo Square Dot' },
+        { label: 'Circle Dot', family: 'Demo Circle Dot' },
+    ];
+    const fontPixelsPerEm = 12;
+    const stage = document.querySelector('#stage');
+    const canvas = document.querySelector('#canvas');
+    const sample = document.querySelector('#sample');
+    const overlay = document.querySelector('#overlay');
+    const sampleText = sample.querySelector('.sample-text');
+    const overlayText = overlay.querySelector('.sample-text');
+    const sampleInput = document.querySelector('#sample-input');
+    const fontName = document.querySelector('#font-name');
+    const pixelScale = document.querySelector('#pixel-scale');
+    const fontSizeValue = document.querySelector('#font-size-value');
+    const switchFont = document.querySelector('#switch-font');
+    const toggleOverlay = document.querySelector('#toggle-overlay');
+    const legend = document.querySelector('#legend');
+    let fontIndex = 0;
+
+    function alignCheckerboard() {
+        const canvasRect = canvas.getBoundingClientRect();
+        const sampleRect = sample.getBoundingClientRect();
+        const markerRect = sample.querySelector('.baseline-marker').getBoundingClientRect();
+        canvas.style.setProperty('--origin-x', `${sampleRect.left - canvasRect.left}px`);
+        canvas.style.setProperty('--origin-y', `${markerRect.top - canvasRect.top}px`);
+        canvas.style.width = `${Math.max(stage.clientWidth, sample.scrollWidth + 96)}px`;
+        canvas.style.height = `${Math.max(stage.clientHeight, sample.scrollHeight + 96)}px`;
+    }
+
+    async function loadFonts() {
+        switchFont.disabled = true;
+        toggleOverlay.disabled = true;
+        await Promise.all(fonts.map(font => document.fonts.load(`72px "${font.family}"`)));
+        alignCheckerboard();
+        switchFont.disabled = false;
+        toggleOverlay.disabled = false;
+    }
+
+    function render() {
+        const currentFont = fonts[fontIndex];
+        const nextFont = fonts[(fontIndex + 1) % fonts.length];
+        sampleText.textContent = sampleInput.value;
+        overlayText.textContent = sampleInput.value;
+        sample.style.fontFamily = `"${currentFont.family}"`;
+        overlay.style.fontFamily = `"${nextFont.family}"`;
+        fontName.textContent = currentFont.label;
+        switchFont.textContent = `切换字体（下一种：${nextFont.label}）`;
+        document.fonts.load(`72px "${currentFont.family}"`).then(alignCheckerboard);
+    }
+
+    switchFont.addEventListener('click', () => {
+        fontIndex = (fontIndex + 1) % fonts.length;
+        render();
+    });
+
+    toggleOverlay.addEventListener('click', () => {
+        const enabled = stage.classList.toggle('overlay');
+        legend.classList.toggle('visible', enabled);
+        toggleOverlay.textContent = enabled ? '关闭叠加' : '开启叠加';
+    });
+
+    pixelScale.addEventListener('change', () => {
+        const scale = Number(pixelScale.value);
+        const fontSize = scale * fontPixelsPerEm;
+        stage.style.setProperty('--pixel-size', `${scale}px`);
+        stage.style.setProperty('--font-size', `${fontSize}px`);
+        fontSizeValue.value = `${fontSize}px`;
+        requestAnimationFrame(alignCheckerboard);
+    });
+
+    sampleInput.addEventListener('input', render);
+    window.addEventListener('resize', alignCheckerboard);
+    render();
+    loadFonts();
+</script>
