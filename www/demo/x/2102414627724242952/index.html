@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fusion Pixel Font — Bilingual Specimen</title>
+  <style>
+    @font-face {
+      font-family: "Fusion Bold 12 JA";
+      src: url("./assets/fonts/fusion-bold-pixel-12px-proportional-ja.otf.woff2") format("woff2");
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: "Fusion Bold 12 Latin";
+      src: url("./assets/fonts/fusion-bold-pixel-12px-proportional-latin.otf.woff2") format("woff2");
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: "Fusion 12 JA";
+      src: url("./assets/fonts/fusion-pixel-12px-proportional-ja.otf.woff2") format("woff2");
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: "Fusion 12 Latin";
+      src: url("./assets/fonts/fusion-pixel-12px-proportional-latin.otf.woff2") format("woff2");
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: "Fusion 10 JA";
+      src: url("./assets/fonts/fusion-pixel-10px-proportional-ja.otf.woff2") format("woff2");
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: "Fusion 10 Latin";
+      src: url("./assets/fonts/fusion-pixel-10px-proportional-latin.otf.woff2") format("woff2");
+      font-display: swap;
+    }
+
+    :root {
+      color-scheme: dark;
+      --ink: #343638;
+      --paper: #f2efe5;
+      --paper-deep: #e5dfd0;
+      --signal: #d8ff63;
+      --night: #131718;
+      --line: rgba(216, 255, 99, 0.2);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: #eef0e8;
+      background:
+        linear-gradient(var(--line) 1px, transparent 1px),
+        linear-gradient(90deg, var(--line) 1px, transparent 1px),
+        radial-gradient(circle at 50% -10%, #34484a 0, var(--night) 54%);
+      background-size: 24px 24px, 24px 24px, auto;
+      font-family: "Fusion 10 Latin", monospace;
+      image-rendering: pixelated;
+    }
+
+    .page {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 56px 0 72px;
+    }
+
+    .eyebrow {
+      margin: 0 0 10px;
+      color: var(--signal);
+      font: 10px/1.6 "Fusion 10 Latin", monospace;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .intro h1 {
+      max-width: 760px;
+      margin: 0;
+      font: 12px/1.55 "Fusion Bold 12 Latin", monospace;
+      text-transform: uppercase;
+    }
+
+    .intro p {
+      max-width: 620px;
+      margin: 14px 0 0;
+      color: #aeb7b3;
+      font: 10px/1.7 "Fusion 10 Latin", monospace;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 24px;
+      margin-top: 42px;
+    }
+
+    .card {
+      position: relative;
+      min-height: 440px;
+      padding: 38px;
+      overflow: hidden;
+      color: var(--ink);
+      background: var(--paper);
+      border: 4px solid var(--ink);
+      box-shadow: 8px 8px 0 rgba(216, 255, 99, 0.9);
+    }
+
+    .card::before,
+    .card::after {
+      position: absolute;
+      width: 18px;
+      height: 18px;
+      content: "";
+      border-color: #9c988d;
+      border-style: solid;
+    }
+
+    .card::before {
+      top: 12px;
+      left: 12px;
+      border-width: 2px 0 0 2px;
+    }
+
+    .card::after {
+      right: 12px;
+      bottom: 12px;
+      border-width: 0 2px 2px 0;
+    }
+
+    .card__meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 40px;
+      padding-bottom: 12px;
+      color: #77776f;
+      border-bottom: 2px solid #cbc5b6;
+      font: 10px/1 "Fusion 10 Latin", monospace;
+      text-transform: uppercase;
+    }
+
+    .card__status {
+      color: #547400;
+    }
+
+    .card h2 {
+      margin: 0 0 28px;
+      color: #303233;
+      text-wrap: balance;
+    }
+
+    .card p {
+      margin: 0;
+      color: #555750;
+    }
+
+    .card blockquote {
+      margin: 30px 0 0;
+      padding: 18px 0 0 18px;
+      color: #77776f;
+      border-top: 2px solid #cbc5b6;
+      border-left: 4px solid #9fb34a;
+    }
+
+    .card--ja h2 { font: 24px/1.65 "Fusion Bold 12 JA", monospace; }
+    .card--ja p { font: 24px/1.85 "Fusion 12 JA", monospace; }
+    .card--ja blockquote { font: 20px/1.9 "Fusion 10 JA", monospace; }
+
+    .card--en h2 {
+      font: 24px/1.45 "Fusion Bold 12 Latin", monospace;
+      text-transform: uppercase;
+    }
+    .card--en p { font: 24px/1.7 "Fusion 12 Latin", monospace; }
+    .card--en blockquote { font: 20px/1.8 "Fusion 10 Latin", monospace; }
+
+    .font-key {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 18px;
+      margin-top: 32px;
+      color: #98a29e;
+      font: 10px/1.6 "Fusion 10 Latin", monospace;
+    }
+
+    .font-key span::before {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      margin-right: 8px;
+      vertical-align: 0;
+      content: "";
+      background: var(--signal);
+    }
+
+    @media (max-width: 760px) {
+      .page { padding-top: 32px; }
+      .cards { grid-template-columns: 1fr; }
+      .card { min-height: auto; padding: 30px 26px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header class="intro">
+      <p class="eyebrow">Typography test / proportional mode</p>
+      <h1>Fusion Pixel Font — Japanese & English Specimen</h1>
+      <p>12px と 10px の原寸ピクセルグリッドを保ちながら、言語別字形と自然なプロポーショナル組版を比較します。</p>
+    </header>
+
+    <section class="cards" aria-label="日英フォント比較">
+      <article class="card card--ja" lang="ja">
+        <div class="card__meta">
+          <span>JP / 01</span>
+          <span class="card__status">接続済み</span>
+        </div>
+        <h2>レーザー：機密プロトコル</h2>
+        <p>これはツールチップ用の、少し長めのプレースホルダーテキストです。ローカライズとフォントのカバー範囲を確認するためのものです。</p>
+        <blockquote>「誰かの言葉の引用。<br>作中世界で書かれたテキスト。」</blockquote>
+      </article>
+
+      <article class="card card--en" lang="en">
+        <div class="card__meta">
+          <span>EN / 02</span>
+          <span class="card__status">Online</span>
+        </div>
+        <h2>Laser: Classified Protocol</h2>
+        <p>This is a slightly longer placeholder text for a tooltip. It helps test localization and font coverage.</p>
+        <blockquote>“A quote from someone.<br>Some written in-world text.”</blockquote>
+      </article>
+    </section>
+
+    <footer class="font-key" aria-label="字体配置说明">
+      <span>Title — Fusion Bold Pixel 12px</span>
+      <span>Body — Fusion Pixel 12px</span>
+      <span>Note — Fusion Pixel 10px</span>
+    </footer>
+  </main>
+</body>
+</html>
