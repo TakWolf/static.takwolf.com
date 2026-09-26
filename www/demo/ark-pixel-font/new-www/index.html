@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="方舟像素字体是一款开源的泛拉丁与泛中日韩像素字体。">
+    <meta name="theme-color" content="#101b2d">
+    <title>方舟像素字体 / Ark Pixel Font</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <a class="skip-link" href="#main">跳到主要内容</a>
+    <header class="site-header" id="top">
+        <a class="brand" href="#top" aria-label="返回首页">
+            <span class="brand-mark" aria-hidden="true">舟</span>
+            <span>ARK PIXEL FONT</span>
+        </a>
+        <nav class="main-nav" aria-label="主要导航">
+            <a href="#lab">试写</a>
+            <a href="#specimen">样张</a>
+            <a href="#glyphs">字库</a>
+            <a href="#about">关于</a>
+        </nav>
+        <a class="header-link" href="https://github.com/TakWolf/ark-pixel-font" target="_blank" rel="noreferrer">GITHUB ↗</a>
+    </header>
+
+    <main id="main">
+        <section class="hero" aria-labelledby="hero-title">
+            <canvas id="hero-canvas" aria-hidden="true"></canvas>
+            <div class="hero-shade" aria-hidden="true"></div>
+            <div class="hero-cloud hero-cloud-one" aria-hidden="true"></div>
+            <div class="hero-cloud hero-cloud-two" aria-hidden="true"></div>
+            <div class="hero-copy">
+                <p class="eyebrow"><span>开源 · 泛 CJK · 2 种字身</span></p>
+                <h1 id="hero-title"><span>方舟</span><span>像素字体</span></h1>
+                <p class="hero-en">ARK PIXEL FONT</p>
+                <p class="hero-intro">把跨越地域的文字，放进同一艘像素方舟。</p>
+                <div class="hero-actions">
+                    <a class="pixel-button pixel-button-primary" href="#lab">开始试写</a>
+                    <a class="pixel-button" href="https://github.com/TakWolf/ark-pixel-font/releases" target="_blank" rel="noreferrer">下载字体 ↗</a>
+                </div>
+            </div>
+            <div class="hero-regions" aria-label="支持的地区字形">
+                <span>简</span><span>繁</span><span>港</span><span>台</span><span>日</span><span>한</span><span>LATIN</span>
+            </div>
+            <a class="scroll-cue" href="#lab">向下探索 <span>↓</span></a>
+        </section>
+
+        <section class="section lab-section" id="lab" aria-labelledby="lab-title">
+            <div class="section-heading">
+                <div><span class="section-index">01</span><p class="kicker">TYPE PLAYGROUND</p></div>
+                <h2 id="lab-title">在这里，<br>让文字发声。</h2>
+                <p>输入任意内容，在 10px 与 12px、等宽与比例字身，以及七种地区字形之间即时切换。</p>
+            </div>
+            <div class="lab-window">
+                <div class="window-bar">
+                    <div class="window-title"><span class="status-light"></span>ARK_TYPE_TERMINAL</div>
+                    <button class="icon-button" id="reset-text" type="button">重置文本</button>
+                </div>
+                <div class="lab-controls" aria-label="字体设置">
+                    <fieldset>
+                        <legend>字号</legend>
+                        <div class="segmented" data-setting="fontSize">
+                            <button type="button" data-value="10">10 PX</button>
+                            <button type="button" data-value="12" class="is-active">12 PX</button>
+                        </div>
+                    </fieldset>
+                    <fieldset>
+                        <legend>字宽</legend>
+                        <div class="segmented" data-setting="widthMode">
+                            <button type="button" data-value="monospaced">等宽</button>
+                            <button type="button" data-value="proportional" class="is-active">比例</button>
+                        </div>
+                    </fieldset>
+                    <fieldset class="locale-fieldset">
+                        <legend>地区字形</legend>
+                        <label class="select-wrap">
+                            <span class="sr-only">选择地区字形</span>
+                            <select id="locale-select">
+                                <option value="zh-Hans">简体中文</option>
+                                <option value="zh-Hant">繁體中文</option>
+                                <option value="zh-HK">香港繁體</option>
+                                <option value="zh-TW">臺灣繁體</option>
+                                <option value="ja">日本語</option>
+                                <option value="ko">한국어</option>
+                                <option value="en">Latin</option>
+                            </select>
+                        </label>
+                    </fieldset>
+                </div>
+                <label class="lab-input-wrap">
+                    <span class="sr-only">字体预览文字</span>
+                    <textarea id="playground-input" spellcheck="false">汉字之美，在方寸之间。\n文字の美しさを、ピクセルで。\n한글의 아름다움을 픽셀로.\nTHE QUICK BROWN FOX JUMPS OVER A LAZY DOG.</textarea>
+                </label>
+                <div class="lab-footer"><span id="font-status">12PX / PROPORTIONAL / ZH-HANS</span><span id="char-count">94 CHARS</span></div>
+            </div>
+        </section>
+
+        <section class="section specimen-section" id="specimen" aria-labelledby="specimen-title">
+            <div class="section-heading heading-light">
+                <div><span class="section-index">02</span><p class="kicker">SPECIMEN ARCHIVE</p></div>
+                <h2 id="specimen-title">同一片月光，<br>不同的文字风景。</h2>
+                <p>方舟像素字体为汉字文化圈的不同地区字形分别绘制字面，在统一的像素骨架中保留各自习惯。</p>
+            </div>
+            <div class="specimen-grid">
+                <article class="specimen-card specimen-card-wide" lang="zh-Hans">
+                    <div class="card-meta"><span>简体中文</span><span>ZH-HANS / 12PX</span></div>
+                    <p>海上生明月，<br>天涯共此时。</p>
+                    <span class="card-seal">简</span>
+                </article>
+                <article class="specimen-card" lang="zh-Hant">
+                    <div class="card-meta"><span>繁體中文</span><span>ZH-HANT</span></div>
+                    <p>山川異域<br>風月同天</p>
+                    <span class="card-seal">繁</span>
+                </article>
+                <article class="specimen-card" lang="ja">
+                    <div class="card-meta"><span>日本語</span><span>JA</span></div>
+                    <p>月が<br>綺麗ですね</p>
+                    <span class="card-seal">日</span>
+                </article>
+                <article class="specimen-card specimen-card-dark" lang="ko">
+                    <div class="card-meta"><span>한국어</span><span>KO</span></div>
+                    <p>별을 보며<br>길을 찾다</p>
+                    <span class="card-seal">한</span>
+                </article>
+                <article class="specimen-card specimen-card-latin" lang="en">
+                    <div class="card-meta"><span>LATIN & SYMBOLS</span><span>EN</span></div>
+                    <p>BUILD<br>NEW WORLDS<br>PIXEL BY PIXEL.</p>
+                    <span class="symbol-row">★ ☆ ☀ ☂ ♫ ⚓ ✈ ☯</span>
+                </article>
+            </div>
+            <div class="demo-links">
+                <a href="../build/outputs/demo-10px.html" target="_blank">打开 10PX 完整样张 ↗</a>
+                <a href="../build/outputs/demo-12px.html" target="_blank">打开 12PX 完整样张 ↗</a>
+            </div>
+        </section>
+
+        <section class="section glyph-section" id="glyphs" aria-labelledby="glyph-title">
+            <div class="section-heading">
+                <div><span class="section-index">03</span><p class="kicker">GLYPH ATLAS</p></div>
+                <h2 id="glyph-title">一笔一画，<br>都是坐标。</h2>
+                <p>检索字体当前覆盖的字符。你也可以切换字号和字宽，前往完整字符图鉴观察网格与基线。</p>
+            </div>
+            <div class="glyph-browser">
+                <div class="glyph-toolbar">
+                    <label class="glyph-search">
+                        <span aria-hidden="true">⌕</span>
+                        <span class="sr-only">搜索字符</span>
+                        <input id="glyph-search" type="search" placeholder="输入字符、码位或名称，如：舟 / 821F / U+821F">
+                    </label>
+                    <div class="segmented compact" data-setting="atlasSize">
+                        <button type="button" data-value="10">10 PX</button>
+                        <button type="button" data-value="12" class="is-active">12 PX</button>
+                    </div>
+                    <div class="segmented compact" data-setting="atlasWidth">
+                        <button type="button" data-value="monospaced">等宽</button>
+                        <button type="button" data-value="proportional" class="is-active">比例</button>
+                    </div>
+                </div>
+                <div class="glyph-grid" id="glyph-grid" aria-live="polite"></div>
+                <div class="glyph-browser-footer">
+                    <span id="glyph-result">正在读取字符集…</span>
+                    <a id="alphabet-link" href="../build/outputs/alphabet-12px-proportional.html" target="_blank">浏览完整字符图鉴 ↗</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="section about-section" id="about" aria-labelledby="about-title">
+            <div class="about-copy">
+                <span class="section-index">04</span>
+                <p class="kicker">OPEN SOURCE PROJECT</p>
+                <h2 id="about-title">开放字形，<br>驶向更大的文字世界。</h2>
+                <p>方舟像素字体是一款黑体风格的开源泛拉丁与泛中日韩像素字体。项目持续维护字形、地区差异与排版能力，欢迎使用、研究与共同建设。</p>
+                <div class="hero-actions">
+                    <a class="pixel-button pixel-button-light" href="https://github.com/TakWolf/ark-pixel-font" target="_blank" rel="noreferrer">查看源代码 ↗</a>
+                    <a class="pixel-button pixel-button-ghost" href="https://takwolf.itch.io/ark-pixel-font" target="_blank" rel="noreferrer">ITCH.IO ↗</a>
+                </div>
+            </div>
+            <div class="ark-emblem" aria-hidden="true">
+                <div class="emblem-moon"></div>
+                <div class="emblem-sail">方</div>
+                <div class="emblem-sail emblem-sail-right">舟</div>
+                <div class="emblem-hull"></div>
+                <div class="emblem-wave wave-one"></div>
+                <div class="emblem-wave wave-two"></div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div><span class="brand-mark">舟</span><strong>方舟像素字体</strong></div>
+        <p>© 2021–2026 TakWolf · OFL-1.1 / MIT</p>
+        <div class="footer-links"><a href="https://discord.gg/3GKtPKtjdU" target="_blank" rel="noreferrer">DISCORD</a><a href="#top">返回顶部 ↑</a></div>
+    </footer>
+
+    <script src="app.js" defer></script>
+</body>
+</html>
